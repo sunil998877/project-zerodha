@@ -85,7 +85,7 @@ const Signin = ({ onSwitchToSignup }) => {
         
         // Open dashboard in new tab after successful signin
         setTimeout(() => {
-          window.open("http://localhost:3001/dashboard", "_blank");
+          window.open("https://main.d1kqhnjtevqqk7.amplifyapp.com/", "_blank");
         }, 1000);
       }
     } catch (error) {
