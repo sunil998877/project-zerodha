@@ -29,7 +29,7 @@ const Signup = () => {
 
   const checkBackendConnection = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/");
+      const response = await axios.get("https://project-zerodha-gwb6.vercel.app/");
       if (response.data.message) {
         setBackendStatus("connected");
       }
@@ -131,7 +131,7 @@ const Signup = () => {
       // Remove confirmPassword before sending to backend
       const { confirmPassword, ...dataToSend } = formData;
       
-      const response = await axios.post("http://localhost:5000/signup", dataToSend);
+      const response = await axios.post("https://project-zerodha-gwb6.vercel.app/signup", dataToSend);
       
       if (response.data.success) {
         // Clear form data
@@ -152,7 +152,7 @@ const Signup = () => {
         
         // Open dashboard in new tab after successful signup
         setTimeout(() => {
-          window.open("http://localhost:3001/dashboad", "_blank");
+          window.open("https://main.d1kqhnjtevqqk7.amplifyapp.com/dashboad", "_blank");
         }, 1000);
       }
     } catch (error) {
@@ -360,7 +360,7 @@ const Signup = () => {
                 <p>Your Zerodha account has been created. You can now access the dashboard.</p>
                                  <button 
                    className="dashboard-btn success"
-                   onClick={() => window.open("http://localhost:3000", "_blank")}
+                   onClick={() => window.open("https://main.d1kqhnjtevqqk7.amplifyapp.com", "_blank")}
                  >
                    🚀 Open Dashboard
                  </button>
