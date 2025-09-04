@@ -9,7 +9,7 @@ const Holdings = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    axios.get("http://localhost:5000/allHoldings")
+    axios.get("https://project-zerodha-gwb6.vercel.app/allHoldings")
       .then((res) => {
         setAllHoldings(res.data || []);
         setIsLoading(false);

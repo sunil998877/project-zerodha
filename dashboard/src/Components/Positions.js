@@ -8,7 +8,7 @@ const Positions = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    axios.get("http://localhost:5000/allPositions")
+    axios.get("https://project-zerodha-gwb6.vercel.app/allPositions")
       .then((res) => {
         setAllPositions(res.data || []);
         setIsLoading(false);
