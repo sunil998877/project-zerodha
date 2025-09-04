@@ -85,7 +85,11 @@ const Signin = ({ onSwitchToSignup }) => {
         
         // Open dashboard in new tab after successful signin
         setTimeout(() => {
+<<<<<<< HEAD
           window.open("https://main.d1kqhnjtevqqk7.amplifyapp.com/", "_blank");
+=======
+          window.open("https://main.d1kqhnjtevqqk7.amplifyapp.com", "_blank");
+>>>>>>> 0d1a3694559c1e3185af18f7df8235e17a953035
         }, 1000);
       }
     } catch (error) {
@@ -188,7 +192,7 @@ const Signin = ({ onSwitchToSignup }) => {
             <p>Welcome back! You can now access your dashboard.</p>
                          <button 
                className="dashboard-btn success"
-               onClick={() => window.open("http://localhost:3001/dashboard", "_blank")}
+               onClick={() => window.open("https://main.d1kqhnjtevqqk7.amplifyapp.com/", "_blank")}
              >
                🚀 Open Dashboard
              </button>
