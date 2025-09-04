@@ -5,34 +5,24 @@ import mongoose from "mongoose";
 import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
-import tempHoldings from "./init/tempHoldings.js";
-import tempPositions from "./init/tempPositions.js";
-import PositionsModel from "./model/PositionsModel.js";
-import HoldingsModel from "./model/HoldingsModel.js";
-import OrdersModel from "./model/OrdersModel.js";
-import UserModel from "./model/UserModel.js";
+import tempHoldings from "../init/tempHoldings.js";
+import tempPositions from "../init/tempPositions.js";
+import PositionsModel from "../model/PositionsModel.js";
+import HoldingsModel from "../model/HoldingsModel.js";
+import OrdersModel from "../model/OrdersModel.js";
+import UserModel from "../model/UserModel.js";
 
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8000;
 const URI = process.env.MONGO_URL || "mongodb://127.0.0.1:27017/zerodha";
 
 // ✅ Test route
 app.get("/", (req, res) => {
   res.json({ message: "Zerodha Backend Server is running!" });
 });
-// // insert holding data
-// app.get("/addHoldings", async (req, res) => {
-//     await tempHoldings();
-//     res.send("Holdings added!");
-//   });
-// // insert positions  data
-// app.get("/addPositions", async (req, res) => {
-//         await tempPositions();
-//         res.send("Positions added!");
-//       });
 
 // ✅ Holdings API
 app.get("/allHoldings", async (req, res) => {
@@ -119,13 +109,13 @@ app.post("/signin", async (req, res) => {
     }
 
     const user = await UserModel.findOne({ email: email.toLowerCase() });
-    
+
     if (!user) {
       return res.status(401).json({ error: "Invalid email or password" });
     }
 
     const isPasswordValid = await user.comparePassword(password);
-    
+
     if (!isPasswordValid) {
       return res.status(401).json({ error: "Invalid email or password" });
     }
@@ -156,9 +146,9 @@ app.get("/user/:userId", async (req, res) => {
 // ✅ Connect to MongoDB
 mongoose.connect(URI)
   .then(() => {
-    console.log("✅ MongoDB connected successfully");
-    app.listen(PORT, () => console.log(`🚀 Server running on http://localhost:${PORT}`));
+    console.log("MongoDB connected successfully");
+    // app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
   })
   .catch((err) => {
-    console.error("❌ MongoDB connection error:", err);
+    console.error("MongoDB connection error:", err);
   });
