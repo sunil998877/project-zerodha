@@ -154,11 +154,14 @@ app.get("/user/:userId", async (req, res) => {
 });
 
 // ✅ Connect to MongoDB
-mongoose.connect(URI)
+mongoose.connect(URI, {
+  useNewUrlParser: true,
+   useUnifiedTopology: true
+})
   .then(() => {
-    console.log("✅ MongoDB connected successfully");
+    console.log("MongoDB connected successfully");
     app.listen(PORT, () => console.log(`🚀 Server running on http://localhost:${PORT}`));
   })
   .catch((err) => {
-    console.error("❌ MongoDB connection error:", err);
+    console.error("MongoDB connection error:", err);
   });
