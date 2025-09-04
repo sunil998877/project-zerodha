@@ -23,16 +23,7 @@ const URI = process.env.MONGO_URL || "mongodb://127.0.0.1:27017/zerodha";
 app.get("/", (req, res) => {
   res.json({ message: "Zerodha Backend Server is running!" });
 });
-// // insert holding data
-// app.get("/addHoldings", async (req, res) => {
-//     await tempHoldings();
-//     res.send("Holdings added!");
-//   });
-// // insert positions  data
-// app.get("/addPositions", async (req, res) => {
-//         await tempPositions();
-//         res.send("Positions added!");
-//       });
+
 
 // ✅ Holdings API
 app.get("/allHoldings", async (req, res) => {
@@ -160,7 +151,7 @@ mongoose.connect(URI, {
 })
   .then(() => {
     console.log("MongoDB connected successfully");
-    app.listen(PORT, () => console.log(`🚀 Server running on http://localhost:${PORT}`));
+    
   })
   .catch((err) => {
     console.error("MongoDB connection error:", err);
