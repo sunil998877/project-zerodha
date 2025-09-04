@@ -144,15 +144,9 @@ app.get("/user/:userId", async (req, res) => {
 });
 
 // ✅ Connect to MongoDB
-<<<<<<< HEAD
 mongoose.connect(URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
-=======
-mongoose.connect(URI,{
-  useNewUrlParser: true,
-   useUnifiedTopology: true
->>>>>>> a07837f848217860f3e7dcba58bfcb9a20b5fd98
 })
   .then(() => {
     console.log("MongoDB connected successfully");
