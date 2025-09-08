@@ -29,7 +29,7 @@ const Signup = () => {
 
   const checkBackendConnection = async () => {
     try {
-      const response = await axios.get("https://project-zerodha-gwb6.vercel.app/");
+      const response = await axios.get("https://project-zerodha.vercel.app/");
       if (response.data.message) {
         setBackendStatus("connected");
       }
@@ -131,7 +131,7 @@ const Signup = () => {
       // Remove confirmPassword before sending to backend
       const { confirmPassword, ...dataToSend } = formData;
       
-      const response = await axios.post("https://project-zerodha-gwb6.vercel.app/signup", dataToSend);
+      const response = await axios.post("https://project-zerodha.vercel.app/signup", dataToSend);
       
       if (response.data.success) {
         // Clear form data

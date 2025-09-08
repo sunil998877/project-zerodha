@@ -20,7 +20,7 @@ const Signin = ({ onSwitchToSignup }) => {
 
   const checkBackendConnection = async () => {
     try {
-      const response = await axios.get("https://project-zerodha-gwb6.vercel.app/");
+      const response = await axios.get("https://project-zerodha.vercel.app/");
       if (response.data.message) {
         setBackendStatus("connected");
       }
@@ -70,7 +70,7 @@ const Signin = ({ onSwitchToSignup }) => {
     setIsLoading(true);
     
     try {
-      const response = await axios.post("https://project-zerodha-gwb6.vercel.app/signin", formData);
+      const response = await axios.post("https://project-zerodha.vercel.app/signin", formData);
       
       if (response.data.success) {
         setSigninSuccess(true);
